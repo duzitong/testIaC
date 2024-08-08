@@ -1,11 +1,12 @@
 module "base" {
-  source              = "../../modules/hciaks"
-  siteId              = basename(abspath(path.module))
-  location            = "eastus"
-  enableProvisioners  = false
-  hci0DefaultGateway  = "192.168.1.1"
-  hci0StartingAddress = "192.168.1.55"
-  hci0EndingAddress   = "192.168.1.65"
+  source               = "../../modules/hciaks"
+  siteId               = basename(abspath(path.module))
+  location             = "eastus"
+  enableProvisioners   = false
+  authenticationMethod = "Credssp"
+  hci0DefaultGateway   = "192.168.1.1"
+  hci0StartingAddress  = "192.168.1.55"
+  hci0EndingAddress    = "192.168.1.65"
   hci0Servers = [
     {
       name        = "AzSHOST1"
@@ -31,7 +32,7 @@ module "base" {
   lnet0-endingAddress        = "192.168.1.190"
   lnet0-addressPrefix        = "192.168.1.0/24"
   aksArc0-controlPlaneIp     = "192.168.1.190"
-  dcPort = 6985
+  dcPort                     = 6985
   serverPorts = {
     "AzSHOST1" = 15985,
     "AzSHOST2" = 25985

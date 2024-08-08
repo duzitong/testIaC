@@ -1,11 +1,12 @@
 module "base" {
-  source              = "../../modules/hciaks"
-  siteId              = basename(abspath(path.module))
-  location            = "eastus"
-  enableProvisioners  = true
-  hci0DefaultGateway  = "192.168.1.1"
-  hci0StartingAddress = "192.168.1.55"
-  hci0EndingAddress   = "192.168.1.65"
+  source               = "../../modules/hciaks"
+  siteId               = basename(abspath(path.module))
+  location             = "eastus"
+  enableProvisioners   = true
+  authenticationMethod = "Credssp"
+  hci0DefaultGateway   = "192.168.1.1"
+  hci0StartingAddress  = "192.168.1.55"
+  hci0EndingAddress    = "192.168.1.65"
   hci0Servers = [
     {
       name        = "AzSHOST1"
