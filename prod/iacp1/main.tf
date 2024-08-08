@@ -2,7 +2,7 @@ module "base" {
   source               = "../../modules/hciaks"
   siteId               = basename(abspath(path.module))
   location             = "eastus"
-  enableProvisioners   = false
+  enableProvisioners   = true
   authenticationMethod = "Credssp"
   hci0DefaultGateway   = "192.168.1.1"
   hci0StartingAddress  = "192.168.1.55"
@@ -27,7 +27,6 @@ module "base" {
   servicePrincipalId         = var.servicePrincipalId
   servicePrincipalSecret     = var.servicePrincipalSecret
   rpServicePrincipalObjectId = var.rpServicePrincipalObjectId
-  isExported                 = true
   lnet0-startingAddress      = "192.168.1.171"
   lnet0-endingAddress        = "192.168.1.190"
   lnet0-addressPrefix        = "192.168.1.0/24"
@@ -37,5 +36,5 @@ module "base" {
     "AzSHOST1" = 15985,
     "AzSHOST2" = 25985
   }
-  hci0VirtualHostIp = "10.0.0.4"
+  hci0VirtualHostIp = "10.0.0.5"
 }
